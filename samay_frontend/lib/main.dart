@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'constants/global_variables.dart';
 
 import 'features/auth/screens/LoginScreen.dart';
 import 'features/auth/screens/RegisterScreen.dart';
@@ -10,6 +11,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  AppRoute _appRoute = AppRoute();
+
   const MyApp({super.key});
 
   @override
@@ -18,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: GlobalVariable.highlighted_green_color as MaterialColor,
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: Colors.transparent,
@@ -27,23 +30,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      onGenerateRoute: _appRoute.onGenerateRoute,
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return RegisterScreen();
   }
 }

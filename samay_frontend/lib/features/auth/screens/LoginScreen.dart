@@ -8,6 +8,7 @@ import '../../../common/widgets/Titles.dart';
 import '../../../common/widgets/Username_input.dart';
 import 'package:flutter_svg/svg.dart';
 import 'RegisterScreen.dart';
+import '../../../constants/global_variables.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -24,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 6, 36, 10),
+      backgroundColor: GlobalVariable.background_green_color,
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20),
@@ -58,7 +59,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             UsernameInput(
                                 hint_text: "Username",
                                 validator: "Provide an email",
-                                bordercolor: Color.fromARGB(255, 117, 189, 65),
+                                bordercolor:
+                                    GlobalVariable.highlighted_green_color,
                                 on_saved: _email),
                             SizedBox(height: 25),
                             Padding(
@@ -72,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Password_inputfield(
                               on_saved: _password,
                               bordercolor:
-                                  const Color.fromARGB(255, 117, 189, 65),
+                                  GlobalVariable.highlighted_green_color,
                             ),
                             SizedBox(
                               height: 10,
